@@ -64,10 +64,8 @@ SBT_BINDIR="$SBT_USER_HOME"/bin
 # chdir as sbt expects
 cd $BUILD_DIR
 
-echo "-----> Installing RequireJS"
+echo "-----> Installing NPM modules"
 npm config set ca=""
-
-npm install -g requirejs
 
 # unpack cache
 CACHED_DIRS="$SBT_USER_HOME/.ivy2 $SBT_BINDIR target project/target project/boot"
@@ -149,6 +147,10 @@ fi
 PROFILE_PATH="$BUILD_DIR/.profile.d/scala.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="/app/.jdk/bin:$PATH"' >> $PROFILE_PATH
+
+npm install --production
+bower install
+npm run build
 
 # repack cache
 mkdir -p $CACHE_DIR
