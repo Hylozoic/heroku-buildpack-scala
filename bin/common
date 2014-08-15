@@ -13,6 +13,14 @@ detect_sbt() {
   fi
 }
 
+function indent() {
+  c='s/^/       /'
+  case $(uname) in
+    Darwin) sed -l "$c";;
+    *)      sed -u "$c";;
+  esac
+}
+
 is_play() {
   _has_playConfig $1
 }
