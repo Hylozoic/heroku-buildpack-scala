@@ -67,6 +67,10 @@ cd $BUILD_DIR
 echo "-----> Installing NPM modules"
 npm config set ca=""
 
+npm install -g bower
+npm instal -g browserify
+npm install -g uglify-js
+
 # unpack cache
 CACHED_DIRS="$SBT_USER_HOME/.ivy2 $SBT_BINDIR target project/target project/boot"
 for DIR in $CACHED_DIRS; do
