@@ -115,6 +115,10 @@ universal_packaging_default_web_proc() {
   fi
 }
 
+status() {
+  echo "-----> $*"
+}
+
 error() {
     echo " !     $1"
     exit 1
