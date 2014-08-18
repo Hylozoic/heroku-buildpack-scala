@@ -235,9 +235,10 @@ if is_play $BUILD_DIR ; then
   fi
 fi
 
-echo "-----> Dropping vender (node) dir from the slug"
+echo "-----> Dropping NODE build directories from the slug"
 rm -rf $BUILD_DIR/vendor
 rm -rf $BUILD_DIR/bower_components
+rm -rf $BUILD_DIR/node_modules
 
 # Move compiled app back to where Heroku expects it
 mv $BUILD_DIR $APP_BUILD_DIR
