@@ -79,10 +79,6 @@ elif test -d $cache_dir/node/node_modules; then
   if test -d $cache_dir/node/bower_components; then
     status "Restoring bower_components directory from cache"
     cp -r $cache_dir/node/bower_components $build_dir/
-
-    status "Pruning cached bower components not specified in bower.json"
-    bower prune 2>&1 | indent
-
   fi
 
 fi
@@ -97,6 +93,10 @@ fi
   status "Installing dependencies"
   # Make npm output to STDOUT instead of its default STDERR
   npm install --userconfig $build_dir/.npmrc --production 2>&1 | indent
+
+  status "Pruning cached bower components not specified in bower.json"
+  bower prune 2>&1 | indent
+
   npm run build
 )
 
