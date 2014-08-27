@@ -95,10 +95,10 @@ fi
   npm install --userconfig $build_dir/.npmrc --production 2>&1 | indent
 
   status "Pruning cached bower components not specified in bower.json"
-  npm run prune
+  npm run prune 2>&1 | indent
 
   status "Browserify the javascript assets"
-  npm run build
+  npm run build 2>&1 | indent
 )
 
 # Persist goodies like node-version in the slug
