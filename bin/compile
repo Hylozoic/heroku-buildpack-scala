@@ -78,7 +78,7 @@ elif test -d $cache_dir/node/node_modules; then
 
   if test -d $cache_dir/node/bower_components; then
     status "Restoring bower_components directory from cache"
-    cp -r $cache_dir/bower_components $build_dir/
+    cp -r $cache_dir/node/bower_components $build_dir/
 
     status "Pruning cached bower components not specified in bower.json"
     bower prune 2>&1 | indent
